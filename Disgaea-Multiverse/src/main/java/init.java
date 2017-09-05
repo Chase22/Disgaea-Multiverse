@@ -3,10 +3,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
-
-import org.omg.CORBA.Environment;
-
 public class init {
 
 	static class player {
@@ -66,7 +62,6 @@ public class init {
 		String[] doit = new String[2];
 		doit[0] = " kann eine Aktion ausführen.";
 		doit[1] = " kann ziehen.";
-		int arrayindex = 0;
 		int runde = 0;
 		int modus = 1;
 
