@@ -13,7 +13,7 @@ public class stats {
 		
 		int modus = 0;
 		
-		
+		//ab hier wird gerechnet
 		if(modus == 0){
             
             int basis = 17;
