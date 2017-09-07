@@ -26,7 +26,6 @@ public class stats {
             int def5;
             int def6;
             while(lev <= 10){
- 
 
                 def1 = (((basis * basis) + (lev*0.1)) * ((1 + lev) * 0.0001) + (lev*0.1));
                 def2 = (((multi * multi) + (lev*0.1)) * ((1 + lev) * 0.0001) + (lev*0.1));
