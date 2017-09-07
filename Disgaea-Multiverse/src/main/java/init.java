@@ -53,7 +53,8 @@ public class init {
 	}
 
 	public static void main(String[] args) {
-
+		
+		// Anzahl der zu berechnenden Spieler
 		int anzahl = 20;
 
 		player[] characters;
