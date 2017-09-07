@@ -53,14 +53,9 @@ public class init {
 	}
 
 	public static void main(String[] args) {
-<<<<<<< HEAD
 
-		int anzahl = 25;
-=======
-		
 		// Anzahl der zu berechnenden Spieler
-		int anzahl = 20;
->>>>>>> branch 'master' of https://github.com/Chase22/Disgaea-Multiverse.git
+		int anzahl = 25;
 
 		player[] characters;
 		List<player> doMove = new ArrayList<>();
