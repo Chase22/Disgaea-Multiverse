@@ -26,7 +26,7 @@ public class init {
 
 	public static randomPlayerResult generatePlayer(int count) {
 		List<player> resultList = new ArrayList<>();
-		// Der aktuell verarbeitete Spieler
+		// Der aktuell verarbeitete Spieler ist voll der Penner
 		player current;
 		int maxMove = 0;
 		int maxInit = 0;
@@ -54,7 +54,7 @@ public class init {
 
 	public static void main(String[] args) {
 
-		int anzahl = 20;
+		int anzahl = 25;
 
 		player[] characters;
 		List<player> doMove = new ArrayList<>();
