@@ -26,6 +26,7 @@ public class init {
 
 	public static randomPlayerResult generatePlayer(int count) {
 		List<player> resultList = new ArrayList<>();
+		// Der aktuell verarbeitete Spieler
 		player current;
 		int maxMove = 0;
 		int maxInit = 0;
