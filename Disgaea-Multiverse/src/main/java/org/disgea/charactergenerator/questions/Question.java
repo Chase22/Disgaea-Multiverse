@@ -9,6 +9,10 @@ public abstract class Question<T> {
 	public abstract JPanel generateQuestionPanel();
 	public abstract void submit();
 	public abstract T getAnswer();
+	public T submitGet() {
+		submit();
+		return getAnswer();
+	}
 	public abstract boolean getValid();
 	
 }

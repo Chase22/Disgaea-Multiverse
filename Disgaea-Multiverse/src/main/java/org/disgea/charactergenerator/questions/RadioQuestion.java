@@ -1,7 +1,6 @@
 package org.disgea.charactergenerator.questions;
 
 import java.util.ArrayList;
-import java.util.DuplicateFormatFlagsException;
 import java.util.List;
 
 import javax.swing.ButtonGroup;

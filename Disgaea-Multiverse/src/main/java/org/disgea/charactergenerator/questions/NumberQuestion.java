@@ -3,7 +3,6 @@ package org.disgea.charactergenerator.questions;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
-import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 public class NumberQuestion extends Question<Integer> {
