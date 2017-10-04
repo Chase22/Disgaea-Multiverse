@@ -6,6 +6,13 @@ public abstract class Question<T> {
 	protected String question;
 	protected T answer;
 	
+	/**
+	 * @param question
+	 */
+	public Question(String question) {
+		super();
+		this.question = question;
+	}
 	public abstract JPanel generateQuestionPanel();
 	public abstract void submit();
 	public abstract T getAnswer();

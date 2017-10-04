@@ -1,7 +1,9 @@
 package org.disgea.charactergenerator.questions;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFormattedTextField.AbstractFormatter;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.event.ChangeEvent;
@@ -10,31 +12,32 @@ import javax.swing.event.ChangeListener;
 import org.javatuples.Pair;
 import org.javatuples.Quartet;
 
-// Quartet<String, Integer, Integer, Integer> Label, Value, Min, Max
-public class DistributeQuestion extends Question<List<Quartet<String, Integer, Integer, Integer>>> implements ChangeListener {
+public class DistributeQuestion extends Question<List<DistributeQuestion.DistributeOption>> implements ChangeListener {
 	
 	private int pointsToDistribute;
 	private int pointsLeftToDistribute;
 	
-	List<Pair<Quartet<String, Integer, Integer, Integer>, NumberQuestion>> options;
+	List<Pair<DistributeOption, NumberQuestion>> options = new ArrayList<>();
 	
 	private JLabel PointsLeft = new JLabel();
 	final String LABEL_FORMAT = "Points left: %d";
 	
-	public DistributeQuestion(List<Quartet<String, Integer, Integer, Integer>> options, int pointToDistribute) {
+	public DistributeQuestion(String questionText, List<DistributeOption> options, int pointToDistribute) {
+		super(questionText);
 		int pointsUsed = 0;
-		for (Quartet<String, Integer, Integer, Integer> opt : options) {
-			NumberQuestion question = new NumberQuestion();
-			question.setMin(opt.getValue2());
-			question.setMax(opt.getValue3());
-			question.setValue(opt.getValue1());
-			this.options.add(new Pair<Quartet<String,Integer,Integer,Integer>, NumberQuestion>(opt, question));
-			this.pointsToDistribute += opt.getValue1();
+		for (DistributeOption opt : options) {
+			NumberQuestion question = new NumberQuestion(opt.label);
+			question.setMin(opt.min);
+			question.setMax(opt.max);
+			question.setValue(opt.value);
+			question.setStep(opt.step);
+			question.addChangeListener(this);
+			if (opt.format != null) question.setFormatter(opt.format);
+			this.options.add(new Pair<DistributeOption, NumberQuestion>(opt, question));
+			pointsUsed += opt.value;
 		}
-		pointsUsed = pointsToDistribute;
-		this.pointsToDistribute += pointToDistribute;
-		this.pointsLeftToDistribute = pointToDistribute - pointsUsed;
-		PointsLeft.setText(String.format(LABEL_FORMAT, pointsLeftToDistribute));
+		this.pointsToDistribute = pointToDistribute + pointsUsed;
+		PointsLeft.setText(String.format(LABEL_FORMAT, pointToDistribute));
 	}
 	
 
@@ -42,7 +45,8 @@ public class DistributeQuestion extends Question<List<Quartet<String, Integer, I
 	public JPanel generateQuestionPanel() {
 		JPanel panel = new JPanel();
 		
-		for (Pair<Quartet<String, Integer, Integer, Integer>, NumberQuestion> quest : options) {
+		for (Pair<DistributeOption, NumberQuestion> quest : options) {
+			panel.add(new JLabel(quest.getValue1().question));
 			panel.add(quest.getValue1().generateQuestionPanel());
 		}
 		panel.add(PointsLeft);
@@ -52,15 +56,15 @@ public class DistributeQuestion extends Question<List<Quartet<String, Integer, I
 	@Override
 	public void submit() {
 		answer.clear();
-		for (Pair<Quartet<String, Integer, Integer, Integer>, NumberQuestion> quest : options) {
+		for (Pair<DistributeOption, NumberQuestion> quest : options) {
 			quest.getValue1().submit();
-			quest.getValue0().setAt1(quest.getValue1().getAnswer());
+			quest.getValue0().value = quest.getValue1().getAnswer();
 			answer.add(quest.getValue0());
 		}
 	}
 
 	@Override
-	public List<Quartet<String, Integer, Integer, Integer>> getAnswer() {
+	public List<DistributeOption> getAnswer() {
 		return answer;
 	}
 
@@ -68,7 +72,7 @@ public class DistributeQuestion extends Question<List<Quartet<String, Integer, I
 	public void stateChanged(ChangeEvent e) {
 		int pointsUsed = 0;
 		
-		for (Pair<Quartet<String, Integer, Integer, Integer>, NumberQuestion> quest : options) {
+		for (Pair<DistributeOption, NumberQuestion> quest : options) {
 			pointsUsed += quest.getValue1().submitGet();
 		}
 		this.pointsLeftToDistribute = pointsToDistribute - pointsUsed;
@@ -81,10 +85,59 @@ public class DistributeQuestion extends Question<List<Quartet<String, Integer, I
 	public boolean getValid() {
 		int pointsUsed = 0;
 		
-		for (Pair<Quartet<String, Integer, Integer, Integer>, NumberQuestion> quest : options) {
+		for (Pair<DistributeOption, NumberQuestion> quest : options) {
 			pointsUsed += quest.getValue1().submitGet();
 		}
 		return pointsUsed == 0;
+	}
+	
+	public static class DistributeOption {
+		public String label;
+		public int value;
+		public int min;
+		public int max;
+		public int step;
+		public AbstractFormatter format;
+
+		public DistributeOption(String label, int value, int min, int max, int step) {
+			super();
+			this.label = label;
+			this.value = value;
+			this.min = min;
+			this.max = max;
+			this.step = step;
+		}
+		
+		public DistributeOption(String label, int value, int min, int max, int step, AbstractFormatter format) {
+			super();
+			this.label = label;
+			this.value = value;
+			this.min = min;
+			this.max = max;
+			this.step = step;
+			this.format = format;
+		}
+		
+		public DistributeOption(String label, int value, int min, int max) {
+			super();
+			this.label = label;
+			this.value = value;
+			this.min = min;
+			this.max = max;
+			this.step = 1;
+		}
+		
+		public DistributeOption(String label, int value, int min, int max, AbstractFormatter format) {
+			super();
+			this.label = label;
+			this.value = value;
+			this.min = min;
+			this.max = max;
+			this.step = 1;
+			this.format = format;
+		}
+		
+		
 	}
 
 }
