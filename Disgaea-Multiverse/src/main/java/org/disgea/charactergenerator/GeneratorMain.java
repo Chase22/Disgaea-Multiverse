@@ -160,7 +160,7 @@ public class GeneratorMain implements ActionListener {
 		character.add(new Option<Integer>("Dante(Devil may Cry)", 8));
 		character.add(new Option<Integer>("Link(The Legend of Zelda)", 9));
 		character.add(new Option<Integer>("Gandalf(Der Herr der Ringe)", 10));
-		
+	
 		attributes = new CheckQuestion<>("Welche der folgenden Attribute möchtest du besonders fördern?(Bitte wähle 4 verschiedene Attribute)", 4);
 		
 		attributes.add(new Option<Integer>("Trefferpunkte", 1));
