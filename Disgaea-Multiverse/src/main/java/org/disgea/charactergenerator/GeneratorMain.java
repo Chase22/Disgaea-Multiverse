@@ -68,32 +68,32 @@ public class GeneratorMain implements ActionListener {
 		gender = new TextQuestion("Geschlecht:", 40);
 
 		List<DistributeOption> options = new ArrayList<>();
-		options.add(new DistributeOption("TP", 4, 4, 10));
-		options.add(new DistributeOption("SP", 2, 2, 8));
-		options.add(new DistributeOption("STr", 2, 2, 8));
-		options.add(new DistributeOption("Abw", 2, 2, 8));
-		options.add(new DistributeOption("Res", 2, 2, 8));
-		options.add(new DistributeOption("Trff", 2, 2, 8));
-		options.add(new DistributeOption("Ges", 2, 2, 8));
-		options.add(new DistributeOption("Init", 2, 2, 8));
-		options.add(new DistributeOption("Bew", 2, 2, 8));
-		options.add(new DistributeOption("Glü", 2, 2, 8));
+		options.add(new DistributeOption("TP", 4, 4, 8));
+		options.add(new DistributeOption("SP", 2, 2, 6));
+		options.add(new DistributeOption("STr", 2, 2, 6));
+		options.add(new DistributeOption("Abw", 2, 2, 6));
+		options.add(new DistributeOption("Res", 2, 2, 6));
+		options.add(new DistributeOption("Trff", 2, 2, 6));
+		options.add(new DistributeOption("Ges", 2, 2, 6));
+		options.add(new DistributeOption("Init", 2, 2, 6));
+		options.add(new DistributeOption("Bew", 2, 2, 6));
+		options.add(new DistributeOption("Glü", 2, 2, 6));
 
 		base = new DistributeQuestion("Bitte verteilen sie ihre Werte", options, 25);
 
 		StringFormatter format = new StringFormatter("%d%%");
 
 		options = new ArrayList<>();
-		options.add(new DistributeOption("TP", 50, 50, 90, 10, format));
-		options.add(new DistributeOption("SP", 50, 50, 90, 10, format));
-		options.add(new DistributeOption("STr", 50, 50, 90, 10, format));
-		options.add(new DistributeOption("Abw", 50, 50, 90, 10, format));
-		options.add(new DistributeOption("Res", 50, 50, 90, 10, format));
-		options.add(new DistributeOption("Trff", 50, 50, 90, 10, format));
-		options.add(new DistributeOption("Ges", 50, 50, 90, 10, format));
-		options.add(new DistributeOption("Init", 50, 50, 90, 10, format));
-		options.add(new DistributeOption("Bew", 50, 50, 90, 10, format));
-		options.add(new DistributeOption("Glü", 50, 50, 90, 10, format));
+		options.add(new DistributeOption("TP", 50, 50, 90, 5, format));
+		options.add(new DistributeOption("SP", 50, 50, 90, 5, format));
+		options.add(new DistributeOption("STr", 50, 50, 90, 5, format));
+		options.add(new DistributeOption("Abw", 50, 50, 90, 5, format));
+		options.add(new DistributeOption("Res", 50, 50, 90, 5, format));
+		options.add(new DistributeOption("Trff", 50, 50, 90, 5, format));
+		options.add(new DistributeOption("Ges", 50, 50, 90, 5, format));
+		options.add(new DistributeOption("Init", 50, 50, 90, 5, format));
+		options.add(new DistributeOption("Bew", 50, 50, 90, 5, format));
+		options.add(new DistributeOption("Glü", 50, 50, 90, 5, format));
 
 		affinity = new DistributeQuestion("Bitte verteilen sie ihre Werte", options, 220);
 
