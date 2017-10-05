@@ -77,7 +77,7 @@ public class GeneratorMain implements ActionListener {
 		options.add(new DistributeOption("Ges", 2, 2, 6));
 		options.add(new DistributeOption("Init", 2, 2, 6));
 		options.add(new DistributeOption("Bew", 2, 2, 6));
-		options.add(new DistributeOption("Glü", 2, 2, 6));
+		options.add(new DistributeOption("Glï¿½", 2, 2, 6));
 
 		base = new DistributeQuestion("Bitte verteilen sie ihre Werte", options, 25);
 
@@ -93,48 +93,48 @@ public class GeneratorMain implements ActionListener {
 		options.add(new DistributeOption("Ges", 50, 50, 90, 5, format));
 		options.add(new DistributeOption("Init", 50, 50, 90, 5, format));
 		options.add(new DistributeOption("Bew", 50, 50, 90, 5, format));
-		options.add(new DistributeOption("Glü", 50, 50, 90, 5, format));
+		options.add(new DistributeOption("Glï¿½", 50, 50, 90, 5, format));
 
 		affinity = new DistributeQuestion("Bitte verteilen sie ihre Werte", options, 220);
 
-		fight = new RadioQuestion("In welcher der folgenden Kampfrollen würdest du dich am wohlsten fühlen?");
-		fight.add(new Option<Integer>("Ich renne los und vermöbel ein paar Gegner", 1));
-		fight.add(new Option<Integer>("Ich würde wohl mit Spezialfähigkeiten und Zaubern hantieren wollen", 2));
+		fight = new RadioQuestion("In welcher der folgenden Kampfrollen wï¿½rdest du dich am wohlsten fï¿½hlen?");
+		fight.add(new Option<Integer>("Ich renne los und vermï¿½bel ein paar Gegner", 1));
+		fight.add(new Option<Integer>("Ich wï¿½rde wohl mit Spezialfï¿½higkeiten und Zaubern hantieren wollen", 2));
 		fight.add(new Option<Integer>("Ich bin FETT und nur schwer umzuhauen", 3));
-		fight.add(new Option<Integer>("Ich wäre bemüht, meine Freunde durch Heilmagie gesund zu halten", 4));
-		fight.add(new Option<Integer>("Ich bekämpfe meine Gegner am besten aus einer sicheren Entfernung", 5));
-		fight.add(new Option<Integer>("Ich würde viele Dinge in kürzester Zeit tun wollen", 6));
-		fight.add(new Option<Integer>("Ich möchte regelrecht über das Schlachtfeld düsen", 7));
-		fight.add(new Option<Integer>("Ich nehms, wie es kommt und verlasse mich auf mein Glück", 8));
+		fight.add(new Option<Integer>("Ich wï¿½re bemï¿½ht, meine Freunde durch Heilmagie gesund zu halten", 4));
+		fight.add(new Option<Integer>("Ich bekï¿½mpfe meine Gegner am besten aus einer sicheren Entfernung", 5));
+		fight.add(new Option<Integer>("Ich wï¿½rde viele Dinge in kï¿½rzester Zeit tun wollen", 6));
+		fight.add(new Option<Integer>("Ich mï¿½chte regelrecht ï¿½ber das Schlachtfeld dï¿½sen", 7));
+		fight.add(new Option<Integer>("Ich nehms, wie es kommt und verlasse mich auf mein Glï¿½ck", 8));
 		fight.add(new Option<Integer>("Ich LIEBE hohe Zahlen!!!", 9));
-		fight.add(new Option<Integer>("Ich stelle mich als Normalo-Schwertkämpfer vor", 10));
-		fight.add(new Option<Integer>("Wie eine Schlange winde ich mich an jede tödliche Schneide vorbei", 11));
+		fight.add(new Option<Integer>("Ich stelle mich als Normalo-Schwertkï¿½mpfer vor", 10));
+		fight.add(new Option<Integer>("Wie eine Schlange winde ich mich an jede tï¿½dliche Schneide vorbei", 11));
 		fight.add(new Option<Integer>("Ich wage es, ein Hybrid zu sein", 12));
 
-		weapon = new RadioQuestion<>("Welcher der folgenden Waffen würde am besten zu deinem Gemüt passen?");
+		weapon = new RadioQuestion<>("Welcher der folgenden Waffen wï¿½rde am besten zu deinem Gemï¿½t passen?");
 		weapon.add(new Option<Integer>(
-				"Die Faust. Mit den bloßen Kräften des eigenen Körpers und eiserner Disziplin folge ich dem Pfad der Kampfkunst",
+				"Die Faust. Mit den bloï¿½en Krï¿½ften des eigenen Kï¿½rpers und eiserner Disziplin folge ich dem Pfad der Kampfkunst",
 				1));
 		weapon.add(new Option<Integer>(
-				"Das Schwert. Der Klassiker unter den Waffen und es gibt keine bessere Universalsprache für einen Kampf als die geschärfte Klinge",
+				"Das Schwert. Der Klassiker unter den Waffen und es gibt keine bessere Universalsprache fï¿½r einen Kampf als die geschï¿½rfte Klinge",
 				2));
 		weapon.add(new Option<Integer>(
-				"Die Lanze. Leicht, zu beherrschen aber schwer, sie zu meistern. Nur die erfahrensten Krieger mit guter Konzentration vermögen es, ihr wahres Potential zu entfalten. Eine Waffe, die Gegner und Schaden auf Abstand hält",
+				"Die Lanze. Leicht, zu beherrschen aber schwer, sie zu meistern. Nur die erfahrensten Krieger mit guter Konzentration vermï¿½gen es, ihr wahres Potential zu entfalten. Eine Waffe, die Gegner und Schaden auf Abstand hï¿½lt",
 				3));
 		weapon.add(new Option<Integer>(
-				"Die Axt. Die destruktive Kraft, Mutter Natur und Väterchen Kopf zur Fall zu bringen. Wenn du was besiegen willst, dann aber vernünftig",
+				"Die Axt. Die destruktive Kraft, Mutter Natur und Vï¿½terchen Kopf zur Fall zu bringen. Wenn du was besiegen willst, dann aber vernï¿½nftig",
 				4));
 		weapon.add(new Option<Integer>(
-				"Der Bogen. Leise und doch so tödlich. Es bedarf nicht viel Material, um zurechtzukommen. Sehr kompakt für maximale Mobilität",
+				"Der Bogen. Leise und doch so tï¿½dlich. Es bedarf nicht viel Material, um zurechtzukommen. Sehr kompakt fï¿½r maximale Mobilitï¿½t",
 				5));
 		weapon.add(new Option<Integer>(
-				"Die Knarre. Denn wer will bitteschön mit nem Messer zu einer Schießerei? Ich erledige sie mit Präzision und Knappheit.",
+				"Die Knarre. Denn wer will bitteschï¿½n mit nem Messer zu einer Schieï¿½erei? Ich erledige sie mit Prï¿½zision und Knappheit.",
 				6));
 		weapon.add(new Option<Integer>(
-				"Der Stab. Die Macht ist mit dir, Max Mustermann. Zauberei ist für mich kein Fremdwort und das sollten meine Feinde auch verstehen können.",
+				"Der Stab. Die Macht ist mit dir, Max Mustermann. Zauberei ist fï¿½r mich kein Fremdwort und das sollten meine Feinde auch verstehen kï¿½nnen.",
 				7));
 		weapon.add(new Option<Integer>(
-				"Das Buch mit Federkiel. Die Feder ist stärker als das Schwert, so sagt man. Ein gutes Denkvermögen ist ein Muss auf dem Schlachtfeld.",
+				"Das Buch mit Federkiel. Die Feder ist stï¿½rker als das Schwert, so sagt man. Ein gutes Denkvermï¿½gen ist ein Muss auf dem Schlachtfeld.",
 				8));
 
 		target = new RadioQuestion<>("Was erhoffst du, im Laufe deiner Reise zu finden?");
@@ -142,14 +142,14 @@ public class GeneratorMain implements ActionListener {
 		target.add(new Option<Integer>("Macht", 2));
 		target.add(new Option<Integer>("Reichtum", 3));
 		target.add(new Option<Integer>("Rache", 4));
-		target.add(new Option<Integer>("Glückseligkeit", 5));
+		target.add(new Option<Integer>("Glï¿½ckseligkeit", 5));
 		target.add(new Option<Integer>("Antworten", 6));
 		target.add(new Option<Integer>("Wunder", 7));
-		target.add(new Option<Integer>("Veränderungen", 8));
-		target.add(new Option<Integer>("Spaß", 9));
+		target.add(new Option<Integer>("Verï¿½nderungen", 8));
+		target.add(new Option<Integer>("Spaï¿½", 9));
 		target.add(new Option<Integer>("Eine Gottheit", 10));
 
-		character = new RadioQuestion<>("Mit welchem der folgenden Charaktere könnte sich dein Charakter am besten identifizieren?");
+		character = new RadioQuestion<>("Mit welchem der folgenden Charaktere kï¿½nnte sich dein Charakter am besten identifizieren?");
 		character.add(new Option<Integer>("Riou(Suikoden)", 1));
 		character.add(new Option<Integer>("Natsu(Fairy Tail)", 2));
 		character.add(new Option<Integer>("Sora(Kindom Hearts)", 3));
@@ -161,11 +161,11 @@ public class GeneratorMain implements ActionListener {
 		character.add(new Option<Integer>("Link(The Legend of Zelda)", 9));
 		character.add(new Option<Integer>("Gandalf(Der Herr der Ringe)", 10));
 	
-		attributes = new CheckQuestion<>("Welche der folgenden Attribute möchtest du besonders fördern?(Bitte wähle 4 verschiedene Attribute)", 4);
+		attributes = new CheckQuestion<>("Welche der folgenden Attribute mï¿½chtest du besonders fï¿½rdern?(Bitte wï¿½hle 4 verschiedene Attribute)", 4);
 		
 		attributes.add(new Option<Integer>("Trefferpunkte", 1));
 		attributes.add(new Option<Integer>("Spezialpunkte", 2));
-		attributes.add(new Option<Integer>("Stärke", 3));
+		attributes.add(new Option<Integer>("Stï¿½rke", 3));
 		attributes.add(new Option<Integer>("Abwehr", 4));
 		attributes.add(new Option<Integer>("Int", 5));
 		attributes.add(new Option<Integer>("Resistenz", 6));
@@ -173,7 +173,7 @@ public class GeneratorMain implements ActionListener {
 		attributes.add(new Option<Integer>("Ges", 8));
 		attributes.add(new Option<Integer>("Init", 9));
 		attributes.add(new Option<Integer>("bew", 10));
-		attributes.add(new Option<Integer>("Glü", 11));
+		attributes.add(new Option<Integer>("Glï¿½", 11));
 
 		questionbox.add(name.generateQuestionPanel());
 		questionbox.add(player.generateQuestionPanel());
