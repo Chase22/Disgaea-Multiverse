@@ -45,6 +45,8 @@ public class DistributeQuestion extends Question<List<DistributeQuestion.Distrib
 	public JPanel generateQuestionPanel() {
 		JPanel panel = new JPanel();
 		
+		panel.add(new JLabel(question));
+		
 		for (Pair<DistributeOption, NumberQuestion> quest : options) {
 			panel.add(new JLabel(quest.getValue1().question));
 			panel.add(quest.getValue1().generateQuestionPanel());

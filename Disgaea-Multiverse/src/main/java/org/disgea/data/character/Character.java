@@ -25,9 +25,10 @@ public class Character {
 	private int counterchance;
 	private int crit;
 	
-	private Attributes attributes;
-	private Weaponskills weaponskills;
-	private Resistances resistances;
+	private Attributes attributes = new Attributes();
+	private Attributes affinities = new Attributes();
+	private Weaponskills weaponskills = new Weaponskills();
+	private Resistances resistances = new Resistances();
 
 	public int getId() {
 		return id;
@@ -219,6 +220,14 @@ public class Character {
 
 	public void setAttributes(Attributes attributes) {
 		this.attributes = attributes;
+	}
+	
+	public Attributes getAffinities() {
+		return affinities;
+	}
+
+	public void getAffinities(Attributes affinities) {
+		this.affinities = affinities;
 	}
 
 	public Weaponskills getWeaponskills() {

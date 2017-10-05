@@ -8,6 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -39,8 +40,10 @@ public class GeneratorMain implements ActionListener {
 	static RadioQuestion<Integer> weapon;
 	static RadioQuestion<Integer> target;
 	static RadioQuestion<Integer> character;
-	
+
 	static CheckQuestion<Integer> attributes;
+
+	static RadioQuestion<Integer> classQuestion;
 
 	static JButton buttonSubmit;
 
@@ -48,6 +51,8 @@ public class GeneratorMain implements ActionListener {
 		JFrame main = new JFrame();
 
 		Box questionbox = Box.createVerticalBox();
+
+		ResourceBundle questionBundle = ResourceBundle.getBundle("QuestionBundle");
 
 		JScrollPane pane = new JScrollPane(questionbox);
 
@@ -72,14 +77,15 @@ public class GeneratorMain implements ActionListener {
 		options.add(new DistributeOption("SP", 2, 2, 6));
 		options.add(new DistributeOption("STr", 2, 2, 6));
 		options.add(new DistributeOption("Abw", 2, 2, 6));
+		options.add(new DistributeOption("Int", 2, 2, 6));
 		options.add(new DistributeOption("Res", 2, 2, 6));
 		options.add(new DistributeOption("Trff", 2, 2, 6));
 		options.add(new DistributeOption("Ges", 2, 2, 6));
 		options.add(new DistributeOption("Init", 2, 2, 6));
 		options.add(new DistributeOption("Bew", 2, 2, 6));
-		options.add(new DistributeOption("Glï¿½", 2, 2, 6));
+		options.add(new DistributeOption("Glück", 2, 2, 6));
 
-		base = new DistributeQuestion("Bitte verteilen sie ihre Werte", options, 25);
+		base = new DistributeQuestion(questionBundle.getString("baseQuest"), options, 25);
 
 		StringFormatter format = new StringFormatter("%d%%");
 
@@ -93,87 +99,93 @@ public class GeneratorMain implements ActionListener {
 		options.add(new DistributeOption("Ges", 50, 50, 90, 5, format));
 		options.add(new DistributeOption("Init", 50, 50, 90, 5, format));
 		options.add(new DistributeOption("Bew", 50, 50, 90, 5, format));
-		options.add(new DistributeOption("Glï¿½", 50, 50, 90, 5, format));
+		options.add(new DistributeOption("Glück", 50, 50, 90, 5, format));
 
-		affinity = new DistributeQuestion("Bitte verteilen sie ihre Werte", options, 220);
+		affinity = new DistributeQuestion(questionBundle.getString("affinityQuest"), options, 220);
 
-		fight = new RadioQuestion("In welcher der folgenden Kampfrollen wï¿½rdest du dich am wohlsten fï¿½hlen?");
-		fight.add(new Option<Integer>("Ich renne los und vermï¿½bel ein paar Gegner", 1));
-		fight.add(new Option<Integer>("Ich wï¿½rde wohl mit Spezialfï¿½higkeiten und Zaubern hantieren wollen", 2));
-		fight.add(new Option<Integer>("Ich bin FETT und nur schwer umzuhauen", 3));
-		fight.add(new Option<Integer>("Ich wï¿½re bemï¿½ht, meine Freunde durch Heilmagie gesund zu halten", 4));
-		fight.add(new Option<Integer>("Ich bekï¿½mpfe meine Gegner am besten aus einer sicheren Entfernung", 5));
-		fight.add(new Option<Integer>("Ich wï¿½rde viele Dinge in kï¿½rzester Zeit tun wollen", 6));
-		fight.add(new Option<Integer>("Ich mï¿½chte regelrecht ï¿½ber das Schlachtfeld dï¿½sen", 7));
-		fight.add(new Option<Integer>("Ich nehms, wie es kommt und verlasse mich auf mein Glï¿½ck", 8));
-		fight.add(new Option<Integer>("Ich LIEBE hohe Zahlen!!!", 9));
-		fight.add(new Option<Integer>("Ich stelle mich als Normalo-Schwertkï¿½mpfer vor", 10));
-		fight.add(new Option<Integer>("Wie eine Schlange winde ich mich an jede tï¿½dliche Schneide vorbei", 11));
-		fight.add(new Option<Integer>("Ich wage es, ein Hybrid zu sein", 12));
+		fight = new RadioQuestion(questionBundle.getString("fightQuest"));
+		fight.add(new Option<Integer>(questionBundle.getString("fightOpt1"), 1));
+		fight.add(new Option<Integer>(questionBundle.getString("fightOpt2"), 2));
+		fight.add(new Option<Integer>(questionBundle.getString("fightOpt3"), 3));
+		fight.add(new Option<Integer>(questionBundle.getString("fightOpt4"), 4));
+		fight.add(new Option<Integer>(questionBundle.getString("fightOpt5"), 5));
+		fight.add(new Option<Integer>(questionBundle.getString("fightOpt6"), 6));
+		fight.add(new Option<Integer>(questionBundle.getString("fightOpt7"), 7));
+		fight.add(new Option<Integer>(questionBundle.getString("fightOpt8"), 8));
+		fight.add(new Option<Integer>(questionBundle.getString("fightOpt9"), 9));
+		fight.add(new Option<Integer>(questionBundle.getString("fightOpt10"), 10));
+		fight.add(new Option<Integer>(questionBundle.getString("fightOpt11"), 11));
+		fight.add(new Option<Integer>(questionBundle.getString("fightOpt12"), 12));
 
-		weapon = new RadioQuestion<>("Welcher der folgenden Waffen wï¿½rde am besten zu deinem Gemï¿½t passen?");
-		weapon.add(new Option<Integer>(
-				"Die Faust. Mit den bloï¿½en Krï¿½ften des eigenen Kï¿½rpers und eiserner Disziplin folge ich dem Pfad der Kampfkunst",
-				1));
-		weapon.add(new Option<Integer>(
-				"Das Schwert. Der Klassiker unter den Waffen und es gibt keine bessere Universalsprache fï¿½r einen Kampf als die geschï¿½rfte Klinge",
-				2));
-		weapon.add(new Option<Integer>(
-				"Die Lanze. Leicht, zu beherrschen aber schwer, sie zu meistern. Nur die erfahrensten Krieger mit guter Konzentration vermï¿½gen es, ihr wahres Potential zu entfalten. Eine Waffe, die Gegner und Schaden auf Abstand hï¿½lt",
-				3));
-		weapon.add(new Option<Integer>(
-				"Die Axt. Die destruktive Kraft, Mutter Natur und Vï¿½terchen Kopf zur Fall zu bringen. Wenn du was besiegen willst, dann aber vernï¿½nftig",
-				4));
-		weapon.add(new Option<Integer>(
-				"Der Bogen. Leise und doch so tï¿½dlich. Es bedarf nicht viel Material, um zurechtzukommen. Sehr kompakt fï¿½r maximale Mobilitï¿½t",
-				5));
-		weapon.add(new Option<Integer>(
-				"Die Knarre. Denn wer will bitteschï¿½n mit nem Messer zu einer Schieï¿½erei? Ich erledige sie mit Prï¿½zision und Knappheit.",
-				6));
-		weapon.add(new Option<Integer>(
-				"Der Stab. Die Macht ist mit dir, Max Mustermann. Zauberei ist fï¿½r mich kein Fremdwort und das sollten meine Feinde auch verstehen kï¿½nnen.",
-				7));
-		weapon.add(new Option<Integer>(
-				"Das Buch mit Federkiel. Die Feder ist stï¿½rker als das Schwert, so sagt man. Ein gutes Denkvermï¿½gen ist ein Muss auf dem Schlachtfeld.",
-				8));
+		weapon = new RadioQuestion<>(questionBundle.getString("weaponQuest"));
+		weapon.add(new Option<Integer>(questionBundle.getString("weaponOpt1"), 1));
+		weapon.add(new Option<Integer>(questionBundle.getString("weaponOpt2"), 2));
+		weapon.add(new Option<Integer>(questionBundle.getString("weaponOpt3"), 3));
+		weapon.add(new Option<Integer>(questionBundle.getString("weaponOpt4"), 4));
+		weapon.add(new Option<Integer>(questionBundle.getString("weaponOpt5"), 5));
+		weapon.add(new Option<Integer>(questionBundle.getString("weaponOpt6"), 6));
+		weapon.add(new Option<Integer>(questionBundle.getString("weaponOpt7"), 7));
+		weapon.add(new Option<Integer>(questionBundle.getString("weaponOpt8"), 8));
 
-		target = new RadioQuestion<>("Was erhoffst du, im Laufe deiner Reise zu finden?");
-		target.add(new Option<Integer>("Wissen", 1));
-		target.add(new Option<Integer>("Macht", 2));
-		target.add(new Option<Integer>("Reichtum", 3));
-		target.add(new Option<Integer>("Rache", 4));
-		target.add(new Option<Integer>("Glï¿½ckseligkeit", 5));
-		target.add(new Option<Integer>("Antworten", 6));
-		target.add(new Option<Integer>("Wunder", 7));
-		target.add(new Option<Integer>("Verï¿½nderungen", 8));
-		target.add(new Option<Integer>("Spaï¿½", 9));
-		target.add(new Option<Integer>("Eine Gottheit", 10));
+		target = new RadioQuestion<>(questionBundle.getString("targetQuest"));
+		target.add(new Option<Integer>(questionBundle.getString("targetOpt1"), 1));
+		target.add(new Option<Integer>(questionBundle.getString("targetOpt2"), 2));
+		target.add(new Option<Integer>(questionBundle.getString("targetOpt3"), 3));
+		target.add(new Option<Integer>(questionBundle.getString("targetOpt4"), 4));
+		target.add(new Option<Integer>(questionBundle.getString("targetOpt5"), 5));
+		target.add(new Option<Integer>(questionBundle.getString("targetOpt6"), 6));
+		target.add(new Option<Integer>(questionBundle.getString("targetOpt7"), 7));
+		target.add(new Option<Integer>(questionBundle.getString("targetOpt8"), 8));
+		target.add(new Option<Integer>(questionBundle.getString("targetOpt9"), 9));
+		target.add(new Option<Integer>(questionBundle.getString("targetOpt10"), 10));
 
-		character = new RadioQuestion<>("Mit welchem der folgenden Charaktere kï¿½nnte sich dein Charakter am besten identifizieren?");
-		character.add(new Option<Integer>("Riou(Suikoden)", 1));
-		character.add(new Option<Integer>("Natsu(Fairy Tail)", 2));
-		character.add(new Option<Integer>("Sora(Kindom Hearts)", 3));
-		character.add(new Option<Integer>("Asura(Asura's Wrath)", 4));
-		character.add(new Option<Integer>("Hector(Fire Emplem)", 5));
-		character.add(new Option<Integer>("Deadpool(Deadpool)", 6));
-		character.add(new Option<Integer>("Could(Final Fantasy)", 7));
-		character.add(new Option<Integer>("Dante(Devil may Cry)", 8));
-		character.add(new Option<Integer>("Link(The Legend of Zelda)", 9));
-		character.add(new Option<Integer>("Gandalf(Der Herr der Ringe)", 10));
-	
-		attributes = new CheckQuestion<>("Welche der folgenden Attribute mï¿½chtest du besonders fï¿½rdern?(Bitte wï¿½hle 4 verschiedene Attribute)", 4);
-		
-		attributes.add(new Option<Integer>("Trefferpunkte", 1));
-		attributes.add(new Option<Integer>("Spezialpunkte", 2));
-		attributes.add(new Option<Integer>("Stï¿½rke", 3));
-		attributes.add(new Option<Integer>("Abwehr", 4));
-		attributes.add(new Option<Integer>("Int", 5));
-		attributes.add(new Option<Integer>("Resistenz", 6));
-		attributes.add(new Option<Integer>("Treffer", 7));
-		attributes.add(new Option<Integer>("Ges", 8));
-		attributes.add(new Option<Integer>("Init", 9));
-		attributes.add(new Option<Integer>("bew", 10));
-		attributes.add(new Option<Integer>("Glï¿½", 11));
+		character = new RadioQuestion<>(questionBundle.getString("characterQuest"));
+		character.add(new Option<Integer>(questionBundle.getString("characterOpt1"), 1));
+		character.add(new Option<Integer>(questionBundle.getString("characterOpt2"), 2));
+		character.add(new Option<Integer>(questionBundle.getString("characterOpt3"), 3));
+		character.add(new Option<Integer>(questionBundle.getString("characterOpt4"), 4));
+		character.add(new Option<Integer>(questionBundle.getString("characterOpt5"), 5));
+		character.add(new Option<Integer>(questionBundle.getString("characterOpt6"), 6));
+		character.add(new Option<Integer>(questionBundle.getString("characterOpt7"), 7));
+		character.add(new Option<Integer>(questionBundle.getString("characterOpt8"), 8));
+		character.add(new Option<Integer>(questionBundle.getString("characterOpt9"), 9));
+		character.add(new Option<Integer>(questionBundle.getString("characterOpt10"), 10));
+
+		attributes = new CheckQuestion<>(questionBundle.getString("attributesQuest"), 4);
+
+		attributes.add(new Option<Integer>(questionBundle.getString("attributesOpt1"), 1));
+		attributes.add(new Option<Integer>(questionBundle.getString("attributesOpt2"), 2));
+		attributes.add(new Option<Integer>(questionBundle.getString("attributesOpt3"), 3));
+		attributes.add(new Option<Integer>(questionBundle.getString("attributesOpt4"), 4));
+		attributes.add(new Option<Integer>(questionBundle.getString("attributesOpt5"), 5));
+		attributes.add(new Option<Integer>(questionBundle.getString("attributesOpt6"), 6));
+		attributes.add(new Option<Integer>(questionBundle.getString("attributesOpt7"), 7));
+		attributes.add(new Option<Integer>(questionBundle.getString("attributesOpt8"), 8));
+		attributes.add(new Option<Integer>(questionBundle.getString("attributesOpt9"), 9));
+		attributes.add(new Option<Integer>(questionBundle.getString("attributesOpt10"), 10));
+		attributes.add(new Option<Integer>(questionBundle.getString("attributesOpt11"), 11));
+
+		classQuestion = new RadioQuestion<>(questionBundle.getString("classQuest"));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt1"), 1));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt2"), 2));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt3"), 3));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt4"), 4));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt5"), 5));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt6"), 6));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt7"), 7));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt8"), 8));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt9"), 9));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt10"), 10));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt11"), 11));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt12"), 12));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt13"), 13));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt14"), 14));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt15"), 15));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt16"), 16));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt17"), 17));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt18"), 18));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt19"), 19));
+		classQuestion.add(new Option<Integer>(questionBundle.getString("classOpt20"), 20));
 
 		questionbox.add(name.generateQuestionPanel());
 		questionbox.add(player.generateQuestionPanel());
@@ -186,6 +198,7 @@ public class GeneratorMain implements ActionListener {
 		questionbox.add(target.generateQuestionPanel());
 		questionbox.add(character.generateQuestionPanel());
 		questionbox.add(attributes.generateQuestionPanel());
+		questionbox.add(classQuestion.generateQuestionPanel());
 
 		questionbox.add(buttonSubmit);
 
@@ -200,10 +213,78 @@ public class GeneratorMain implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Character character = new Character();
+		List<DistributeOption> options;
+		int answer;
+
 		character.setCharname(name.submitGet());
 		character.setPlayername(player.submitGet());
 		character.setRace(race.submitGet());
 		character.setGender(gender.submitGet());
+
+		options = base.submitGet();
+		character.setHitpoints(options.get(0).value);
+		character.setSpecialpoints(options.get(1).value);
+		character.getAttributes().setStrength(options.get(2).value);
+		character.getAttributes().setDefense(options.get(3).value);
+		character.getAttributes().setIntelligence(options.get(4).value);
+		character.getAttributes().setResistance(options.get(5).value);
+		character.getAttributes().setHit(options.get(6).value);
+		character.getAttributes().setSpeed(options.get(7).value);
+		character.getAttributes().setInitiative(options.get(8).value);
+		character.getAttributes().setMovement(options.get(9).value);
+		character.getAttributes().setLuck(options.get(10).value);
+
+		options = affinity.submitGet();
+		character.setHitpoints(options.get(0).value);
+		character.setSpecialpoints(options.get(1).value);
+		character.getAffinities().setStrength(options.get(2).value);
+		character.getAffinities().setDefense(options.get(3).value);
+		character.getAffinities().setIntelligence(options.get(4).value);
+		character.getAffinities().setResistance(options.get(5).value);
+		character.getAffinities().setHit(options.get(6).value);
+		character.getAffinities().setSpeed(options.get(7).value);
+		character.getAffinities().setInitiative(options.get(8).value);
+		character.getAffinities().setMovement(options.get(9).value);
+		character.getAffinities().setLuck(options.get(10).value);
+
+		answer = fight.submitGet().getValue();
+		switch (answer) {
+		case 1:
+			character.getAttributes().changeStrength(+4);
+			character.getAttributes().changeHit(+3);
+			character.getAttributes().changeInitiative(+3);
+			character.getAttributes().changeSpeed(+2);
+			character.getAttributes().changeMovement(+2);
+			character.getAttributes().changeLuck(+2);
+			character.getAttributes().changeDefense(+1);
+			character.getAttributes().changeResistance(+1);
+			character.setHitpoints(character.getHitpoints()+1);
+			character.setSpecialpoints(character.getSpecialpoints()+1);
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 7:
+			break;
+		case 8:
+			break;
+		case 9:
+			break;
+		case 10:
+			break;
+		case 11:
+			break;
+		case 12:
+			break;
+		}
+
 	}
 
 }
