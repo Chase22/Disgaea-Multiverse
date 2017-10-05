@@ -6,6 +6,7 @@ import java.util.List;
 public class init {
 
 	static class player {
+		
 		String name;
 		double init;
 		double move;
@@ -112,6 +113,5 @@ public class init {
 				}
 			}
 		}
-
 	}
 }

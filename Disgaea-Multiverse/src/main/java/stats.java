@@ -16,8 +16,8 @@ public class stats {
 		//ab hier wird gerechnet
 		if(modus == 0){
             
-            int basis = 17;
-            int multi = 127;
+            int basis = 12;
+            int multi = 125;
             int lev = 0;
             double def1;
             double def2;
