@@ -11,6 +11,19 @@ public class Attributes {
 	private int movement;
 	private int luck;
 
+	public void changeAttributes(int strength, int defense, int intelligence, int resistance, int hit, int speed,
+			int initiative, int movement, int luck) {
+		changeDefense(defense);
+		changeHit(hit);
+		changeInitiative(initiative);
+		changeIntelligence(intelligence);
+		changeLuck(luck);
+		changeMovement(movement);
+		changeResistance(resistance);
+		changeSpeed(speed);
+		changeStrength(strength);
+	}
+
 	public int getStrength() {
 		return strength;
 	}
@@ -20,9 +33,9 @@ public class Attributes {
 	}
 
 	public void changeStrength(int change) {
-		this.strength+=change;
+		this.strength += change;
 	}
-	
+
 	public int getDefense() {
 		return defense;
 	}
@@ -30,9 +43,9 @@ public class Attributes {
 	public void setDefense(int defense) {
 		this.defense = defense;
 	}
-	
+
 	public void changeDefense(int change) {
-		this.defense+=change;
+		this.defense += change;
 	}
 
 	public int getIntelligence() {
@@ -42,9 +55,9 @@ public class Attributes {
 	public void setIntelligence(int intelligence) {
 		this.intelligence = intelligence;
 	}
-	
+
 	public void changeIntelligence(int change) {
-		this.intelligence+=change;
+		this.intelligence += change;
 	}
 
 	public int getResistance() {
@@ -54,9 +67,9 @@ public class Attributes {
 	public void setResistance(int resistance) {
 		this.resistance = resistance;
 	}
-	
+
 	public void changeResistance(int change) {
-		this.resistance+=change;
+		this.resistance += change;
 	}
 
 	public int getHit() {
@@ -66,9 +79,9 @@ public class Attributes {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
-	
+
 	public void changeHit(int change) {
-		this.hit+=change;
+		this.hit += change;
 	}
 
 	public int getSpeed() {
@@ -78,9 +91,9 @@ public class Attributes {
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
-	
+
 	public void changeSpeed(int change) {
-		this.speed+=change;
+		this.speed += change;
 	}
 
 	public int getInitiative() {
@@ -92,9 +105,9 @@ public class Attributes {
 	}
 
 	public void changeInitiative(int change) {
-		this.initiative+=change;
+		this.initiative += change;
 	}
-	
+
 	public int getMovement() {
 		return movement;
 	}
@@ -102,9 +115,9 @@ public class Attributes {
 	public void setMovement(int movement) {
 		this.movement = movement;
 	}
-	
+
 	public void changeMovement(int change) {
-		this.movement+=change;
+		this.movement += change;
 	}
 
 	public int getLuck() {
@@ -114,9 +127,9 @@ public class Attributes {
 	public void setLuck(int luck) {
 		this.luck = luck;
 	}
-	
+
 	public void changeLuck(int change) {
-		this.luck+=change;
+		this.luck += change;
 	}
 
 }

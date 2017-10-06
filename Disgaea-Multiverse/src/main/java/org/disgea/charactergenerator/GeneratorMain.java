@@ -83,7 +83,7 @@ public class GeneratorMain implements ActionListener {
 		options.add(new DistributeOption("Ges", 2, 2, 6));
 		options.add(new DistributeOption("Init", 2, 2, 6));
 		options.add(new DistributeOption("Bew", 2, 2, 6));
-		options.add(new DistributeOption("Glück", 2, 2, 6));
+		options.add(new DistributeOption("Glï¿½ck", 2, 2, 6));
 
 		base = new DistributeQuestion(questionBundle.getString("baseQuest"), options, 25);
 
@@ -99,7 +99,7 @@ public class GeneratorMain implements ActionListener {
 		options.add(new DistributeOption("Ges", 50, 50, 90, 5, format));
 		options.add(new DistributeOption("Init", 50, 50, 90, 5, format));
 		options.add(new DistributeOption("Bew", 50, 50, 90, 5, format));
-		options.add(new DistributeOption("Glück", 50, 50, 90, 5, format));
+		options.add(new DistributeOption("Glï¿½ck", 50, 50, 90, 5, format));
 
 		affinity = new DistributeQuestion(questionBundle.getString("affinityQuest"), options, 220);
 
@@ -250,22 +250,24 @@ public class GeneratorMain implements ActionListener {
 		answer = fight.submitGet().getValue();
 		switch (answer) {
 		case 1:
-			character.getAttributes().changeStrength(+4);
-			character.getAttributes().changeHit(+3);
-			character.getAttributes().changeInitiative(+3);
-			character.getAttributes().changeSpeed(+2);
-			character.getAttributes().changeMovement(+2);
-			character.getAttributes().changeLuck(+2);
-			character.getAttributes().changeDefense(+1);
-			character.getAttributes().changeResistance(+1);
-			character.setHitpoints(character.getHitpoints()+1);
-			character.setSpecialpoints(character.getSpecialpoints()+1);
+			character.getAttributes().changeAttributes(4, 1, 0, 1, 3, 2, 1, 1, 2);
+			character.setHitpoints(character.getHitpoints() + 1);
+			character.setSpecialpoints(character.getSpecialpoints() + 1);
 			break;
 		case 2:
+			character.getAttributes().changeAttributes(0, 1, 3, 2, 3, 2, 1, 1, 2);
+			character.setHitpoints(character.getHitpoints() + 1);
+			character.setSpecialpoints(character.getSpecialpoints() + 4);
 			break;
 		case 3:
+			character.getAttributes().changeAttributes(2, 4, 1, 3, 0, 2, 1, 1, 2);
+			character.setHitpoints(character.getHitpoints()+3);
+			character.setSpecialpoints(character.getSpecialpoints()+1);
 			break;
 		case 4:
+			character.getAttributes().changeAttributes(1, 2, 3, 4, 1, 2, 2, 1, 1);
+			character.setHitpoints(character.getHitpoints()+0);
+			character.setSpecialpoints(character.getSpecialpoints()+3);
 			break;
 		case 5:
 			break;
