@@ -11,7 +11,7 @@ public class level1 {
 
 	// Chasetorial 1 Ein- und Ausgabe:
 	// Name: Martin Durmich aka Truncatus
-		//blubb
+		//blubblhlhjn
 		InputStreamReader leser = new InputStreamReader(System.in); //inputs werden in Datenfetzen gewandelt
 	    BufferedReader wandler = new BufferedReader(leser); // Buffer wandelt Datenfetzen in Wörter um.
 	    String a_name = ""; // Variable für den Namen
