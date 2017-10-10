@@ -5,13 +5,13 @@ public class Attributes {
 	private int defense;
 	private int intelligence;
 	private int resistance;
-	private int hit;
+	private double hit;
 	private int speed;
 	private int initiative;
 	private int movement;
 	private int luck;
 
-	public void changeAttributes(int strength, int defense, int intelligence, int resistance, int hit, int speed,
+	public void changeAttributes(int strength, int defense, int intelligence, int resistance, double hit, int speed,
 			int initiative, int movement, int luck) {
 		changeDefense(defense);
 		changeHit(hit);
@@ -72,16 +72,16 @@ public class Attributes {
 		this.resistance += change;
 	}
 
-	public int getHit() {
+	public double getHit() {
 		return hit;
 	}
 
-	public void setHit(int hit) {
+	public void setHit(double hit) {
 		this.hit = hit;
 	}
 
-	public void changeHit(int change) {
-		this.hit += change;
+	public void changeHit(double hit) {
+		this.hit += hit;
 	}
 
 	public int getSpeed() {
